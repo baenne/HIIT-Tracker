@@ -5,84 +5,71 @@
 //  Created by Benedikt Jensch on 12.11.21.
 //
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
-struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
+enum ViewState: Int {
+	case mainMenu = 0
+	case intro = 4
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
+struct ContentView: View {
+	@Environment(\.managedObjectContext) private var viewContext
+	@ObservedObject var userManager: UserManager
+	@State private var viewState: ViewState? = .intro
+	@EnvironmentObject var navigationHelper: NavigationHelper
+	@ViewBuilder
+	var body: some View {
+		NavigationView {
+			VStack(alignment: .center) {
+				withAnimation {
+					HStack {
+						Spacer()
+
+						Text("HIIT-Tracker")
+							.font(.title)
+							.foregroundColor(.textColor)
+
+						Spacer()
+					}
+				}
+				Spacer()
+				Image(systemName: "timer")
+					.renderingMode(.template)
+					.resizable()
+					.foregroundColor(.textColor)
+					.scaledToFit()
+					.frame(width: 150, height: 150)
+				Spacer()
+				if viewState == .intro {
+					Button(action: {
+						withAnimation {
+							setViewState(viewState: .mainMenu)
+						}
+					}) {
+						Text("Start")
+							.foregroundColor(.textColor)
+					}
+					.padding()
+					.background(Color.secondaryAppColor)
+					.cornerRadius(15)
+					.shadow(radius: 2)
+				} else if viewState == .mainMenu {
+					MainMenuView(userManager: userManager)
+				}
+				Spacer()
+			}
+			.background(Color.mainAppColor)
+		}
+	}
+
+	func setViewState(viewState: ViewState) {
+		self.viewState = viewState
+	}
+}
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
+	static var previews: some View {
+		ContentView(userManager: UserManager()).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+	}
 }
