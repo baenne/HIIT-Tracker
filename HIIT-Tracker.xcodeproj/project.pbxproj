@@ -11,8 +11,6 @@
 		1776BE2A273E5D06004C981D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776BE29273E5D06004C981D /* ContentView.swift */; };
 		1776BE2C273E5D07004C981D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1776BE2B273E5D07004C981D /* Assets.xcassets */; };
 		1776BE2F273E5D07004C981D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1776BE2E273E5D07004C981D /* Preview Assets.xcassets */; };
-		1776BE31273E5D07004C981D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776BE30273E5D07004C981D /* Persistence.swift */; };
-		1776BE34273E5D07004C981D /* HIIT_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1776BE32273E5D07004C981D /* HIIT_Tracker.xcdatamodeld */; };
 		1776BE3C273E5D71004C981D /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776BE3B273E5D71004C981D /* AppColors.swift */; };
 		1776BE3E273E9333004C981D /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776BE3D273E9333004C981D /* TimerView.swift */; };
 		1776BE40273E9519004C981D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776BE3F273E9519004C981D /* SettingsView.swift */; };
@@ -29,8 +27,6 @@
 		1776BE29273E5D06004C981D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1776BE2B273E5D07004C981D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1776BE2E273E5D07004C981D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1776BE30273E5D07004C981D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		1776BE33273E5D07004C981D /* HIIT_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HIIT_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		1776BE3B273E5D71004C981D /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		1776BE3D273E9333004C981D /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		1776BE3F273E9519004C981D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -76,8 +72,6 @@
 				1776BE27273E5D06004C981D /* HIIT_TrackerApp.swift */,
 				1776BE29273E5D06004C981D /* ContentView.swift */,
 				1776BE2B273E5D07004C981D /* Assets.xcassets */,
-				1776BE30273E5D07004C981D /* Persistence.swift */,
-				1776BE32273E5D07004C981D /* HIIT_Tracker.xcdatamodeld */,
 				1776BE2D273E5D07004C981D /* Preview Content */,
 			);
 			path = "HIIT-Tracker";
@@ -190,9 +184,7 @@
 				1776BE42273E98B2004C981D /* MainMenuView.swift in Sources */,
 				177B8E5B2742872A00C338C7 /* UserData.swift in Sources */,
 				177B8E5D274423AB00C338C7 /* PopToRootNavigation.swift in Sources */,
-				1776BE31273E5D07004C981D /* Persistence.swift in Sources */,
 				1776BE2A273E5D06004C981D /* ContentView.swift in Sources */,
-				1776BE34273E5D07004C981D /* HIIT_Tracker.xcdatamodeld in Sources */,
 				1776BE3C273E5D71004C981D /* AppColors.swift in Sources */,
 				1776BE28273E5D06004C981D /* HIIT_TrackerApp.swift in Sources */,
 			);
@@ -399,19 +391,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		1776BE32273E5D07004C981D /* HIIT_Tracker.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				1776BE33273E5D07004C981D /* HIIT_Tracker.xcdatamodel */,
-			);
-			currentVersion = 1776BE33273E5D07004C981D /* HIIT_Tracker.xcdatamodel */;
-			path = HIIT_Tracker.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 1776BE1C273E5D06004C981D /* Project object */;
 }
