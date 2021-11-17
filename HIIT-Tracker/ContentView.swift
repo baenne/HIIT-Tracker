@@ -17,7 +17,6 @@ struct ContentView: View {
 	@Environment(\.managedObjectContext) private var viewContext
 	@ObservedObject var userManager: UserManager
 	@State private var viewState: ViewState? = .intro
-	@EnvironmentObject var navigationHelper: NavigationHelper
 	@ViewBuilder
 	var body: some View {
 		NavigationView {

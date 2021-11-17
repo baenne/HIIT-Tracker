@@ -10,37 +10,8 @@ import SwiftUI
 class SettingsViewModel: ObservableObject {
 	@ObservedObject var userManager: UserManager
 	
-	init(userManager: UserManager,name: String = "", rounds: String = "", roundTime: String = "", pauseTime: String = "") {
+	init(userManager: UserManager,name: String = "") {
 		self.userManager = userManager
-		self.name = userManager.userData?.name ?? ""
-		self.rounds = String(userManager.userData?.standardRounds ?? 20)
-		self.roundTime = String(userManager.userData?.standardRoundTime ?? 60)
-		self.pauseTime = String(userManager.userData?.standardPauseTime ?? 20)
-	}
-	@Published
-	var name: String {
-		didSet {
-			userManager.userData?.name = name
-		}
-	}
-	
-	@Published
-	var rounds: String {
-		didSet {
-			userManager.userData?.standardRounds = Int(rounds)
-		}
-	}
-	@Published
-	var roundTime: String {
-		didSet {
-			userManager.userData?.standardRoundTime = Int(roundTime)
-		}
-	}
-	@Published
-	var pauseTime: String {
-		didSet {
-			userManager.userData?.standardPauseTime = Int(pauseTime)
-		}
 	}
 }
 
@@ -57,10 +28,10 @@ struct SettingsView: View {
 			VStack {
 				VStack(alignment: .center) {
 					Spacer()
-					SettingsTextField(binding: $viewModel.name, descr: "Name:", numbers: false)
-					SettingsTextField(binding: $viewModel.rounds, descr: "Rounds:", numbers: true)
-					SettingsTextField(binding: $viewModel.roundTime, descr: "Round Time:", numbers: true)
-					SettingsTextField(binding: $viewModel.pauseTime, descr: "Pause Time:", numbers: true)
+					SettingsTextField(binding: $viewModel.userManager.name, descr: "Name:", numbers: false)
+					SettingsTextField(binding: $viewModel.userManager.rounds, descr: "Rounds:", numbers: true)
+					SettingsTextField(binding: $viewModel.userManager.roundTime, descr: "Round Time:", numbers: true)
+					SettingsTextField(binding: $viewModel.userManager.pauseTime, descr: "Pause Time:", numbers: true)
 					Spacer()
 					HStack {
 						Spacer()
@@ -103,7 +74,7 @@ struct SettingsTextField: View {
 		Group {
 			Text(descr)
 			if numbers {
-			TextField(descr, text: $binding, onEditingChanged: { edit in
+			TextField("", text: $binding, onEditingChanged: { edit in
 				self.editing = edit
 			})
 				.keyboardType(.numberPad)
@@ -121,7 +92,7 @@ struct SettingsTextField: View {
 					}
 				}
 			} else {
-				TextField(descr, text: $binding, onEditingChanged: { edit in
+				TextField("", text: $binding, onEditingChanged: { edit in
 					self.editing = edit
 				})
 					.keyboardType(.numberPad)

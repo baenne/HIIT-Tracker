@@ -21,9 +21,9 @@ class TimerViewModel: ObservableObject {
 	init(userManager: UserManager, workout: Workout) {
 		self.userManager = userManager
 		self.workout = workout
-		self.tempRounds = workout.rounds
-		self.tempRoundTime = workout.roundTime
-		self.tempPauseTime = workout.pauseTime
+		self.tempRounds = Int(workout.rounds) ?? 5
+		self.tempRoundTime = Int(workout.roundTime) ?? 3
+		self.tempPauseTime = Int(workout.pauseTime) ?? 2
 	}
 
 	var displayTime: Int {
@@ -52,20 +52,21 @@ class TimerViewModel: ObservableObject {
 }
 
 struct TimerView: View {
-	@EnvironmentObject var navigationHelper: NavigationHelper
 	@ObservedObject var viewModel: TimerViewModel
-
+	@Environment(\.presentationMode) var presentationMode
 	var body: some View {
-		finishScreen
+		VStack {
+			finishScreen
+		}.navigationTitle("Workout")
 	}
 
 	var finishScreen: some View {
-		VStack {
+		Group {
 			if viewModel.tempRounds == 0 {
 				VStack {
-					Text("You finished your Workout \(viewModel.userManager.userData?.name ?? "Error")")
+					Text("You finished your Workout \(viewModel.userManager.name)")
 					Button(action: {
-						navigationHelper.selection = nil
+						self.presentationMode.wrappedValue.dismiss()
 					})
 					{Text("Finish")}
 				}
@@ -81,8 +82,8 @@ struct TimerView: View {
 							viewModel.tempPauseTime -= 1
 						} else {
 							if viewModel.tempRounds > 0 {
-								viewModel.tempRoundTime = viewModel.workout.roundTime
-								viewModel.tempPauseTime = viewModel.workout.pauseTime
+								viewModel.tempRoundTime = Int(viewModel.workout.roundTime) ?? 4
+								viewModel.tempPauseTime = Int(viewModel.workout.pauseTime) ?? 3
 								viewModel.tempRounds -= 1
 							}
 						}

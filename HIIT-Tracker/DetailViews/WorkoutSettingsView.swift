@@ -12,22 +12,11 @@ class WorkoutSettingsViewModel: ObservableObject {
 	
 	init(userManager: UserManager, rounds: String = "", roundTime: String = "", pauseTime: String = "") {
 		self.userManager = userManager
-		self.rounds = String(userManager.userData?.standardRounds ?? 20)
-		self.roundTime = String(userManager.userData?.standardRoundTime ?? 60)
-		self.pauseTime = String(userManager.userData?.standardPauseTime ?? 20)
 	}
-	
-	@Published
-	var rounds: String
-	@Published
-	var roundTime: String
-	@Published
-	var pauseTime: String
 }
 
 struct WorkoutSettingsView: View {
 	@ObservedObject var viewModel: WorkoutSettingsViewModel
-	@EnvironmentObject var navigationHelper: NavigationHelper
 	
 	init(viewModel: WorkoutSettingsViewModel) {
 		self.viewModel = viewModel
@@ -40,11 +29,13 @@ struct WorkoutSettingsView: View {
 			VStack {
 				VStack(alignment: .center) {
 					Spacer()
-					SettingsTextField(binding: $viewModel.rounds, descr: "Rounds:", numbers: true)
-					SettingsTextField(binding: $viewModel.roundTime, descr: "Round Time:", numbers: true)
-					SettingsTextField(binding: $viewModel.pauseTime, descr: "Pause Time:", numbers: true)
+					SettingsTextField(binding: $viewModel.userManager.rounds, descr: "Rounds:", numbers: true)
+					SettingsTextField(binding: $viewModel.userManager.roundTime, descr: "Round Time:", numbers: true)
+					SettingsTextField(binding: $viewModel.userManager.pauseTime, descr: "Pause Time:", numbers: true)
 					Spacer()
-					NavigationLink(destination: AnyView(TimerView(viewModel: TimerViewModel(userManager: viewModel.userManager, workout: Workout(rounds: Int(viewModel.rounds) ?? 10, roundTime: Int(viewModel.roundTime) ?? 5, pauseTime: Int(viewModel.pauseTime) ?? 5)))), tag: "Timer", selection: $navigationHelper.selection){
+					NavigationLink(destination: {
+						TimerView(viewModel: TimerViewModel(userManager: viewModel.userManager, workout: Workout(rounds: viewModel.userManager.rounds, roundTime: viewModel.userManager.roundTime, pauseTime: viewModel.userManager.pauseTime)))
+					}){
 						Spacer()
 						Text("Start")
 							.foregroundColor(.textColor)

@@ -9,33 +9,31 @@ import Foundation
 import SwiftUI
 
 struct MainMenuView: View {
-	
 	@ObservedObject var userManager: UserManager
 	
     var body: some View {
 		VStack {
 			VStack {
-				MainMenuButtonStyle(view: AnyView(WorkoutSettingsView(viewModel: WorkoutSettingsViewModel(userManager: userManager))), buttonText: "Start Workout", tag: "WorkoutSettings")
-				MainMenuButtonStyle(view: AnyView(SettingsView(viewModel: SettingsViewModel(userManager: userManager))), buttonText: "Settings", tag: "Settings")
-				MainMenuButtonStyle(view: AnyView(SettingsView(viewModel: SettingsViewModel(userManager: userManager))), buttonText: "Profile", tag: "Profile")
+				MainMenuButtonStyle(view: {WorkoutSettingsView(viewModel: WorkoutSettingsViewModel(userManager: userManager))}, buttonText: "Start Workout")
+				MainMenuButtonStyle(view: {SettingsView(viewModel: SettingsViewModel(userManager: userManager))}, buttonText: "Settings")
+				MainMenuButtonStyle(view: {SettingsView(viewModel: SettingsViewModel(userManager: userManager))}, buttonText: "Profile")
 			}
 			.frame(width: 150)
 		}.navigationBarHidden(true)
     }
 }
 
-struct MainMenuButtonStyle: View {
-	@EnvironmentObject var navigationHelper: NavigationHelper
+struct MainMenuButtonStyle<Content: View>: View {
 	
 	let color: Color
 	let backgroundColor: Color
 	let cornerRadius: CGFloat
 	let shadowRadius: CGFloat
-	let view : AnyView
+	let view : () -> Content
 	let buttonText: String
 	let tag: String
 	
-	init(color: Color = .textColor, backgroundColor: Color = .secondaryAppColor, cornerRadius: CGFloat = 15, shadowRadius: CGFloat = 2,  view : AnyView = AnyView(EmptyView()), buttonText: String = "Placeholder", tag: String = "") {
+	init(color: Color = .textColor, backgroundColor: Color = .secondaryAppColor, cornerRadius: CGFloat = 15, shadowRadius: CGFloat = 2, @ViewBuilder view : @escaping () -> Content, buttonText: String = "Placeholder", tag: String = "") {
 		self.color = color
 		self.backgroundColor = backgroundColor
 		self.cornerRadius = cornerRadius
@@ -46,7 +44,7 @@ struct MainMenuButtonStyle: View {
 	}
 	var body: some View {
 		
-		NavigationLink( destination: view, tag: tag , selection: $navigationHelper.selection) {
+		NavigationLink(destination: view) {
 			Spacer()
 			Text(buttonText)
 				.foregroundColor(color)
