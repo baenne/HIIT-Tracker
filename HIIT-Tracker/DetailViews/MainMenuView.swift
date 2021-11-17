@@ -17,6 +17,8 @@ struct MainMenuView: View {
 				MainMenuButtonStyle(view: {WorkoutSettingsView(viewModel: WorkoutSettingsViewModel(userManager: userManager))}, buttonText: "Start Workout")
 				MainMenuButtonStyle(view: {SettingsView(viewModel: SettingsViewModel(userManager: userManager))}, buttonText: "Settings")
 				MainMenuButtonStyle(view: {SettingsView(viewModel: SettingsViewModel(userManager: userManager))}, buttonText: "Profile")
+				
+				Text("\(userManager.workoutList[1].rating)")
 			}
 			.frame(width: 150)
 		}.navigationBarHidden(true)
