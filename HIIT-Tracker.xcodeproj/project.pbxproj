@@ -19,6 +19,8 @@
 		1776BE47273EB53A004C981D /* WorkoutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776BE46273EB53A004C981D /* WorkoutSettingsView.swift */; };
 		177B8E5B2742872A00C338C7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177B8E5A2742872A00C338C7 /* UserData.swift */; };
 		177B8E5D274423AB00C338C7 /* PopToRootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177B8E5C274423AA00C338C7 /* PopToRootNavigation.swift */; };
+		17B5617E27453D97008A2554 /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5617D27453D97008A2554 /* WorkoutListView.swift */; };
+		17B56180274540F4008A2554 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5617F274540F4008A2554 /* WorkoutDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		1776BE46273EB53A004C981D /* WorkoutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSettingsView.swift; sourceTree = "<group>"; };
 		177B8E5A2742872A00C338C7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		177B8E5C274423AA00C338C7 /* PopToRootNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToRootNavigation.swift; sourceTree = "<group>"; };
+		17B5617D27453D97008A2554 /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
+		17B5617F274540F4008A2554 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				1776BE3F273E9519004C981D /* SettingsView.swift */,
 				1776BE3D273E9333004C981D /* TimerView.swift */,
 				1776BE46273EB53A004C981D /* WorkoutSettingsView.swift */,
+				17B5617D27453D97008A2554 /* WorkoutListView.swift */,
+				17B5617F274540F4008A2554 /* WorkoutDetailView.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -182,7 +188,9 @@
 				1776BE3E273E9333004C981D /* TimerView.swift in Sources */,
 				1776BE47273EB53A004C981D /* WorkoutSettingsView.swift in Sources */,
 				1776BE42273E98B2004C981D /* MainMenuView.swift in Sources */,
+				17B5617E27453D97008A2554 /* WorkoutListView.swift in Sources */,
 				177B8E5B2742872A00C338C7 /* UserData.swift in Sources */,
+				17B56180274540F4008A2554 /* WorkoutDetailView.swift in Sources */,
 				177B8E5D274423AB00C338C7 /* PopToRootNavigation.swift in Sources */,
 				1776BE2A273E5D06004C981D /* ContentView.swift in Sources */,
 				1776BE3C273E5D71004C981D /* AppColors.swift in Sources */,
@@ -316,7 +324,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HIIT-Tracker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = H25X3F763W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -346,7 +354,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HIIT-Tracker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = H25X3F763W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

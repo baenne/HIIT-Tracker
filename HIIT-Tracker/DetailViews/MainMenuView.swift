@@ -16,9 +16,7 @@ struct MainMenuView: View {
 			VStack {
 				MainMenuButtonStyle(view: {WorkoutSettingsView(viewModel: WorkoutSettingsViewModel(userManager: userManager))}, buttonText: "Start Workout")
 				MainMenuButtonStyle(view: {SettingsView(viewModel: SettingsViewModel(userManager: userManager))}, buttonText: "Settings")
-				MainMenuButtonStyle(view: {SettingsView(viewModel: SettingsViewModel(userManager: userManager))}, buttonText: "Profile")
-				
-				Text("\(userManager.workoutList[1].rating)")
+				MainMenuButtonStyle(view: {WorkoutListView(userManager: userManager)}, buttonText: "Workouts")
 			}
 			.frame(width: 150)
 		}.navigationBarHidden(true)
