@@ -7,20 +7,13 @@
 import Combine
 import SwiftUI
 
-class SettingsViewModel: ObservableObject {
-	@ObservedObject var userManager: UserManager
-	
-	init(userManager: UserManager,name: String = "") {
-		self.userManager = userManager
-	}
-}
-
 struct SettingsView: View {
-	@ObservedObject var viewModel: SettingsViewModel
+	@EnvironmentObject var userManager: UserManager
 	
-	init(viewModel: SettingsViewModel) {
-		self.viewModel = viewModel
-	}
+	@State private var name = ""
+	@State private var rounds = ""
+	@State private var roundTime = ""
+	@State private var pauseTime = ""
 	
 	var body: some View {
 		HStack {
@@ -28,10 +21,10 @@ struct SettingsView: View {
 			VStack {
 				VStack(alignment: .center) {
 					Spacer()
-					SettingsTextField(binding: $viewModel.userManager.name, descr: "Name:", numbers: false)
-					SettingsTextField(binding: $viewModel.userManager.rounds, descr: "Rounds:", numbers: true)
-					SettingsTextField(binding: $viewModel.userManager.roundTime, descr: "Round Time:", numbers: true)
-					SettingsTextField(binding: $viewModel.userManager.pauseTime, descr: "Pause Time:", numbers: true)
+					SettingsTextField(binding: $name, descr: "Name:", numbers: false)
+					SettingsTextField(binding: $rounds, descr: "Rounds:", numbers: true)
+					SettingsTextField(binding: $roundTime, descr: "Round Time:", numbers: true)
+					SettingsTextField(binding: $pauseTime, descr: "Pause Time:", numbers: true)
 					Spacer()
 					HStack {
 						Spacer()
@@ -56,10 +49,17 @@ struct SettingsView: View {
 		}
 		.navigationTitle("Workout Preparation")
 		.navigationBarTitleDisplayMode(.inline)
+		.onAppear(perform: {
+			name = userManager.userData!.name
+			rounds = userManager.userData!.standardRounds
+			roundTime = userManager.userData!.standardRoundTime
+			pauseTime = userManager.userData!.standardPauseTime
+		})
+		.background(Color.mainAppColor)
 	}
 	
 	func saveData() -> Void {
-		viewModel.userManager.saveUserData()
+		userManager.saveUserData(name: name, standardRounds: rounds, standardRoundTime: roundTime, standardPauseTime: pauseTime)
 	}
 }
 
@@ -73,6 +73,7 @@ struct SettingsTextField: View {
 	var body: some View {
 		Group {
 			Text(descr)
+				.foregroundColor(.textColor)
 			if numbers {
 			TextField("", text: $binding, onEditingChanged: { edit in
 				self.editing = edit
@@ -80,6 +81,10 @@ struct SettingsTextField: View {
 				.keyboardType(.numberPad)
 				.padding()
 				.frame(width: width)
+				.background(
+				RoundedRectangle(cornerRadius: 15)
+					.fill(Color.white)
+				)
 				.overlay(
 					RoundedRectangle(cornerRadius: 15)
 						.stroke(editing ? Color.secondaryAppColor : Color.black, lineWidth: editing ? 2 : 1)
@@ -98,6 +103,10 @@ struct SettingsTextField: View {
 					.keyboardType(.numberPad)
 					.padding()
 					.frame(width: width)
+					.background(
+					RoundedRectangle(cornerRadius: 15)
+						.fill(Color.white)
+					)
 					.overlay(
 						RoundedRectangle(cornerRadius: 15)
 							.stroke(editing ? Color.secondaryAppColor : Color.black, lineWidth: editing ? 2 : 1)
@@ -110,6 +119,6 @@ struct SettingsTextField: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-		SettingsView(viewModel: SettingsViewModel(userManager: UserManager()))
+		SettingsView()
     }
 }

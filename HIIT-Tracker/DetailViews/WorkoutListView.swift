@@ -8,23 +8,35 @@
 import SwiftUI
 
 struct WorkoutListView: View {
-	@ObservedObject var userManager: UserManager
+	@EnvironmentObject var userManager: UserManager
 	var body: some View {
-		VStack {
-			List {
-				ForEach(userManager.workoutList.reversed()) { workout in
+		HStack {
+			Spacer()
+			ScrollView {
+				ForEach(userManager.workouts!.workoutArray.reversed()) { workout in
 					NavigationLink(destination: WorkoutDetailView(workout: workout)) {
-						Text("Workout from: \(workout.time.formatted(date: .abbreviated, time: .shortened))")
-					}
+						HStack {
+							Text("Workout from: \(workout.time.formatted(date: .abbreviated, time: .shortened))")
+							Image(systemName: "chevron.right")
+						}
+					}.padding(10)
+					.foregroundColor(.textColor)
+					.background(Color.secondaryAppColor)
+					.cornerRadius(15)
+					.shadow(radius: 2)
 				}
 			}
-		}.navigationBarTitle("Past Workouts")
+			Spacer()
+		}
+		.navigationBarTitle("Past Workouts")
 		.navigationBarTitleDisplayMode(.inline)
+		.background(Color.mainAppColor)
+		
 	}
 }
 
 struct WorkoutListView_Previews: PreviewProvider {
 	static var previews: some View {
-		WorkoutListView(userManager: UserManager())
+		WorkoutListView()
 	}
 }

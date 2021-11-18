@@ -8,7 +8,7 @@
 import SwiftUI
 
 class TimerViewModel: ObservableObject {
-	@ObservedObject var userManager: UserManager
+	
 	var workout: Workout
 	let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 	@Published
@@ -30,8 +30,7 @@ class TimerViewModel: ObservableObject {
 		}
 	}
 
-	init(userManager: UserManager, workout: Workout, rating: Int = 3, note: String = "") {
-		self.userManager = userManager
+	init( workout: Workout, rating: Int = 3, note: String = "") {
 		self.workout = workout
 		self.tempRounds = Int(workout.rounds) ?? 5
 		self.tempRoundTime = Int(workout.roundTime) ?? 3
@@ -67,6 +66,7 @@ class TimerViewModel: ObservableObject {
 
 struct TimerView: View {
 	@ObservedObject var viewModel: TimerViewModel
+	@EnvironmentObject var userManager: UserManager
 	@Environment(\.presentationMode) var presentationMode
 	var body: some View {
 		GeometryReader { proxy in
@@ -85,7 +85,7 @@ struct TimerView: View {
 			if viewModel.tempRounds == 0 {
 				VStack {
 					Spacer()
-					Text("You finished your Workout \(viewModel.userManager.name)")
+					Text("You finished your Workout \(userManager.name)")
 					Text("Rate your workout")
 					HStack {
 						RatingView(rating: $viewModel.rating)
@@ -93,8 +93,8 @@ struct TimerView: View {
 					TextEditor(text: $viewModel.note)
 						.frame(width: width - 150, height: 150)
 					Button(action: {
-						viewModel.userManager.workoutList.append(viewModel.workout)
-						viewModel.userManager.saveUserData()
+						userManager.workouts!.appendWorkoutArray(workout: viewModel.workout)
+						userManager.saveWorkouts()
 						self.presentationMode.wrappedValue.dismiss()
 					})
 					{Text("Finish")}
@@ -103,8 +103,10 @@ struct TimerView: View {
 			} else {
 				VStack {
 					Spacer()
-					Text("\(viewModel.roundsOrPause)")
-					Text("\(viewModel.displayTime)")
+					
+					Text("\(withAnimation {viewModel.roundsOrPause})")
+					Text("\(withAnimation {viewModel.displayTime})")
+					
 					Spacer()
 				}.onReceive(viewModel.timer) { _ in
 					if viewModel.tempRoundTime > 0 {
@@ -160,7 +162,7 @@ struct RatingView: View {
 }
 
 struct TimerView_Previews: PreviewProvider {
-	static var viewModel = TimerViewModel(userManager: UserManager() ,workout: Workout())
+	static var viewModel = TimerViewModel(workout: Workout())
 	static var previews: some View {
 		TimerView(viewModel: TimerView_Previews.viewModel)
 	}

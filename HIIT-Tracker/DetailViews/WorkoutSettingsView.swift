@@ -8,20 +8,16 @@ import Combine
 import SwiftUI
 
 class WorkoutSettingsViewModel: ObservableObject {
-	@ObservedObject var userManager: UserManager
 	
-	init(userManager: UserManager, rounds: String = "", roundTime: String = "", pauseTime: String = "") {
-		self.userManager = userManager
-	}
 }
 
 struct WorkoutSettingsView: View {
-	@ObservedObject var viewModel: WorkoutSettingsViewModel
+	@EnvironmentObject var userManager: UserManager
 	
-	init(viewModel: WorkoutSettingsViewModel) {
-		self.viewModel = viewModel
-	}
 	@State private var editing = false
+	@State private var rounds = ""
+	@State private var roundTime = ""
+	@State private var pauseTime = ""
 	
 	var body: some View {
 		HStack {
@@ -29,12 +25,12 @@ struct WorkoutSettingsView: View {
 			VStack {
 				VStack(alignment: .center) {
 					Spacer()
-					SettingsTextField(binding: $viewModel.userManager.rounds, descr: "Rounds:", numbers: true)
-					SettingsTextField(binding: $viewModel.userManager.roundTime, descr: "Round Time:", numbers: true)
-					SettingsTextField(binding: $viewModel.userManager.pauseTime, descr: "Pause Time:", numbers: true)
+					SettingsTextField(binding: $rounds, descr: "Rounds:", numbers: true)
+					SettingsTextField(binding: $roundTime, descr: "Round Time:", numbers: true)
+					SettingsTextField(binding: $pauseTime, descr: "Pause Time:", numbers: true)
 					Spacer()
 					NavigationLink(destination: {
-						TimerView(viewModel: TimerViewModel(userManager: viewModel.userManager, workout: Workout(rounds: viewModel.userManager.rounds, roundTime: viewModel.userManager.roundTime, pauseTime: viewModel.userManager.pauseTime)))
+						TimerView(viewModel: TimerViewModel( workout: Workout(rounds: rounds, roundTime: roundTime, pauseTime: pauseTime)))
 					}){
 						Spacer()
 						Text("Start")
@@ -53,11 +49,17 @@ struct WorkoutSettingsView: View {
 		}
 		.navigationTitle("Workout Preparation")
 		.navigationBarTitleDisplayMode(.inline)
+		.onAppear(perform: {
+			rounds = userManager.rounds
+			roundTime = userManager.roundTime
+			pauseTime = userManager.pauseTime
+		})
+		.background(Color.mainAppColor)
 	}
 }
 
 struct WorkoutSettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-		WorkoutSettingsView(viewModel: WorkoutSettingsViewModel(userManager: UserManager()))
+		WorkoutSettingsView()
 	}
 }

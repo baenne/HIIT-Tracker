@@ -14,8 +14,6 @@ enum ViewState: Int {
 }
 
 struct ContentView: View {
-	@Environment(\.managedObjectContext) private var viewContext
-	@ObservedObject var userManager: UserManager
 	@State private var viewState: ViewState? = .intro
 	@ViewBuilder
 	var body: some View {
@@ -54,7 +52,7 @@ struct ContentView: View {
 					.cornerRadius(15)
 					.shadow(radius: 2)
 				} else if viewState == .mainMenu {
-					MainMenuView(userManager: userManager)
+					MainMenuView()
 				}
 				Spacer()
 			}
@@ -69,6 +67,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView(userManager: UserManager())
+		ContentView()
 	}
 }

@@ -9,14 +9,13 @@ import Foundation
 import SwiftUI
 
 struct MainMenuView: View {
-	@ObservedObject var userManager: UserManager
 	
     var body: some View {
 		VStack {
 			VStack {
-				MainMenuButtonStyle(view: {WorkoutSettingsView(viewModel: WorkoutSettingsViewModel(userManager: userManager))}, buttonText: "Start Workout")
-				MainMenuButtonStyle(view: {SettingsView(viewModel: SettingsViewModel(userManager: userManager))}, buttonText: "Settings")
-				MainMenuButtonStyle(view: {WorkoutListView(userManager: userManager)}, buttonText: "Workouts")
+				MainMenuButtonStyle(view: {WorkoutSettingsView()}, buttonText: "Start Workout")
+				MainMenuButtonStyle(view: {SettingsView()}, buttonText: "Settings")
+				MainMenuButtonStyle(view: {WorkoutListView()}, buttonText: "Workouts")
 			}
 			.frame(width: 150)
 		}.navigationBarHidden(true)
@@ -61,6 +60,6 @@ struct MainMenuButtonStyle<Content: View>: View {
 
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
-		MainMenuView(userManager: UserManager())
+		MainMenuView()
     }
 }

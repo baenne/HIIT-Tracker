@@ -21,6 +21,8 @@
 		177B8E5D274423AB00C338C7 /* PopToRootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177B8E5C274423AA00C338C7 /* PopToRootNavigation.swift */; };
 		17B5617E27453D97008A2554 /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5617D27453D97008A2554 /* WorkoutListView.swift */; };
 		17B56180274540F4008A2554 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5617F274540F4008A2554 /* WorkoutDetailView.swift */; };
+		17B56182274661A2008A2554 /* Workouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B56181274661A2008A2554 /* Workouts.swift */; };
+		17B56185274661D1008A2554 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B56184274661D1008A2554 /* UserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		177B8E5C274423AA00C338C7 /* PopToRootNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToRootNavigation.swift; sourceTree = "<group>"; };
 		17B5617D27453D97008A2554 /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
 		17B5617F274540F4008A2554 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
+		17B56181274661A2008A2554 /* Workouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workouts.swift; sourceTree = "<group>"; };
+		17B56184274661D1008A2554 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 		1776BE26273E5D06004C981D /* HIIT-Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				17B56183274661C5008A2554 /* Manager */,
 				1776BE45273EAFF5004C981D /* DetailViews */,
 				1776BE3A273E5D59004C981D /* Utility */,
 				1776BE27273E5D06004C981D /* HIIT_TrackerApp.swift */,
@@ -95,6 +100,7 @@
 				1776BE3B273E5D71004C981D /* AppColors.swift */,
 				177B8E5A2742872A00C338C7 /* UserData.swift */,
 				177B8E5C274423AA00C338C7 /* PopToRootNavigation.swift */,
+				17B56181274661A2008A2554 /* Workouts.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -111,6 +117,14 @@
 				17B5617F274540F4008A2554 /* WorkoutDetailView.swift */,
 			);
 			path = DetailViews;
+			sourceTree = "<group>";
+		};
+		17B56183274661C5008A2554 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				17B56184274661D1008A2554 /* UserManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +199,8 @@
 			files = (
 				1776BE40273E9519004C981D /* SettingsView.swift in Sources */,
 				1776BE44273EAFE5004C981D /* HeaderView.swift in Sources */,
+				17B56185274661D1008A2554 /* UserManager.swift in Sources */,
+				17B56182274661A2008A2554 /* Workouts.swift in Sources */,
 				1776BE3E273E9333004C981D /* TimerView.swift in Sources */,
 				1776BE47273EB53A004C981D /* WorkoutSettingsView.swift in Sources */,
 				1776BE42273E98B2004C981D /* MainMenuView.swift in Sources */,

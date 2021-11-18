@@ -13,8 +13,8 @@ struct HIIT_TrackerApp: App {
 
     var body: some Scene {
         WindowGroup {
-			ContentView(userManager: UserManager())
-				.environmentObject(NavigationHelper())
+			ContentView()
+				.environmentObject(userManager)
         }
     }
 }
