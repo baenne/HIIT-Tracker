@@ -68,6 +68,7 @@ struct TimerView: View {
 	@ObservedObject var viewModel: TimerViewModel
 	@EnvironmentObject var userManager: UserManager
 	@Environment(\.presentationMode) var presentationMode
+	@State private var animationInProgress: Bool = false
 	var body: some View {
 		GeometryReader { proxy in
 			HStack {
@@ -106,14 +107,20 @@ struct TimerView: View {
 					
 					Text("\(withAnimation {viewModel.roundsOrPause})")
 					Text("\(withAnimation {viewModel.displayTime})")
+					if animationInProgress {
+						LottieAnimationView(animationInProgress: $animationInProgress, name: LottieAnimationView.animations.randomElement() ?? "lunge" )
+							.frame(width: 150, height: 150)
+					}
 					
 					Spacer()
 				}.onReceive(viewModel.timer) { _ in
 					if viewModel.tempRoundTime > 0 {
 						viewModel.tempRoundTime -= 1
+						animationInProgress = true
 					} else {
 						if viewModel.tempRoundTime == 0, viewModel.tempPauseTime > 0 {
 							viewModel.tempPauseTime -= 1
+							animationInProgress = false
 						} else {
 							if viewModel.tempRounds > 0 {
 								viewModel.tempRoundTime = Int(viewModel.workout.roundTime) ?? 4
