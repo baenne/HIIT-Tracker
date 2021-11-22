@@ -19,10 +19,22 @@
 		1776BE47273EB53A004C981D /* WorkoutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776BE46273EB53A004C981D /* WorkoutSettingsView.swift */; };
 		177B8E5B2742872A00C338C7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177B8E5A2742872A00C338C7 /* UserData.swift */; };
 		177B8E5D274423AB00C338C7 /* PopToRootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177B8E5C274423AA00C338C7 /* PopToRootNavigation.swift */; };
+		17969A53274BF8BC0093684C /* inchworm.json in Resources */ = {isa = PBXBuildFile; fileRef = 17969A4B274BF8BC0093684C /* inchworm.json */; };
+		17969A54274BF8BC0093684C /* reverse-crunches.json in Resources */ = {isa = PBXBuildFile; fileRef = 17969A4C274BF8BC0093684C /* reverse-crunches.json */; };
+		17969A55274BF8BC0093684C /* jumping-jack.json in Resources */ = {isa = PBXBuildFile; fileRef = 17969A4D274BF8BC0093684C /* jumping-jack.json */; };
+		17969A56274BF8BC0093684C /* lunge.json in Resources */ = {isa = PBXBuildFile; fileRef = 17969A4E274BF8BC0093684C /* lunge.json */; };
+		17969A57274BF8BC0093684C /* punches.json in Resources */ = {isa = PBXBuildFile; fileRef = 17969A4F274BF8BC0093684C /* punches.json */; };
+		17969A58274BF8BC0093684C /* squat-kick.json in Resources */ = {isa = PBXBuildFile; fileRef = 17969A50274BF8BC0093684C /* squat-kick.json */; };
+		17969A59274BF8BC0093684C /* frog-press.json in Resources */ = {isa = PBXBuildFile; fileRef = 17969A51274BF8BC0093684C /* frog-press.json */; };
+		17969A5A274BF8BC0093684C /* shoulder-stretch.json in Resources */ = {isa = PBXBuildFile; fileRef = 17969A52274BF8BC0093684C /* shoulder-stretch.json */; };
 		17B5617E27453D97008A2554 /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5617D27453D97008A2554 /* WorkoutListView.swift */; };
 		17B56180274540F4008A2554 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5617F274540F4008A2554 /* WorkoutDetailView.swift */; };
 		17B56182274661A2008A2554 /* Workouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B56181274661A2008A2554 /* Workouts.swift */; };
 		17B56185274661D1008A2554 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B56184274661D1008A2554 /* UserManager.swift */; };
+		17B5618A274BE711008A2554 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 17B56189274BE711008A2554 /* Lottie */; };
+		17B5618D274BE851008A2554 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 17B5618C274BE851008A2554 /* FirebaseAuth */; };
+		17B5618F274BE851008A2554 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 17B5618E274BE851008A2554 /* FirebaseDatabase */; };
+		17B56191274BE8A3008A2554 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B56190274BE8A3008A2554 /* LottieView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,10 +51,19 @@
 		1776BE46273EB53A004C981D /* WorkoutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSettingsView.swift; sourceTree = "<group>"; };
 		177B8E5A2742872A00C338C7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		177B8E5C274423AA00C338C7 /* PopToRootNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToRootNavigation.swift; sourceTree = "<group>"; };
+		17969A4B274BF8BC0093684C /* inchworm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = inchworm.json; sourceTree = "<group>"; };
+		17969A4C274BF8BC0093684C /* reverse-crunches.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reverse-crunches.json"; sourceTree = "<group>"; };
+		17969A4D274BF8BC0093684C /* jumping-jack.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "jumping-jack.json"; sourceTree = "<group>"; };
+		17969A4E274BF8BC0093684C /* lunge.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lunge.json; sourceTree = "<group>"; };
+		17969A4F274BF8BC0093684C /* punches.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = punches.json; sourceTree = "<group>"; };
+		17969A50274BF8BC0093684C /* squat-kick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "squat-kick.json"; sourceTree = "<group>"; };
+		17969A51274BF8BC0093684C /* frog-press.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "frog-press.json"; sourceTree = "<group>"; };
+		17969A52274BF8BC0093684C /* shoulder-stretch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "shoulder-stretch.json"; sourceTree = "<group>"; };
 		17B5617D27453D97008A2554 /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
 		17B5617F274540F4008A2554 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
 		17B56181274661A2008A2554 /* Workouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workouts.swift; sourceTree = "<group>"; };
 		17B56184274661D1008A2554 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		17B56190274BE8A3008A2554 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B5618F274BE851008A2554 /* FirebaseDatabase in Frameworks */,
+				17B5618A274BE711008A2554 /* Lottie in Frameworks */,
+				17B5618D274BE851008A2554 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +99,7 @@
 		1776BE26273E5D06004C981D /* HIIT-Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				17B56192274BF0D8008A2554 /* AnimationFiles */,
 				17B56183274661C5008A2554 /* Manager */,
 				1776BE45273EAFF5004C981D /* DetailViews */,
 				1776BE3A273E5D59004C981D /* Utility */,
@@ -101,6 +126,7 @@
 				177B8E5A2742872A00C338C7 /* UserData.swift */,
 				177B8E5C274423AA00C338C7 /* PopToRootNavigation.swift */,
 				17B56181274661A2008A2554 /* Workouts.swift */,
+				17B56190274BE8A3008A2554 /* LottieView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -127,6 +153,21 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		17B56192274BF0D8008A2554 /* AnimationFiles */ = {
+			isa = PBXGroup;
+			children = (
+				17969A51274BF8BC0093684C /* frog-press.json */,
+				17969A4B274BF8BC0093684C /* inchworm.json */,
+				17969A4D274BF8BC0093684C /* jumping-jack.json */,
+				17969A4E274BF8BC0093684C /* lunge.json */,
+				17969A4F274BF8BC0093684C /* punches.json */,
+				17969A4C274BF8BC0093684C /* reverse-crunches.json */,
+				17969A52274BF8BC0093684C /* shoulder-stretch.json */,
+				17969A50274BF8BC0093684C /* squat-kick.json */,
+			);
+			path = AnimationFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +184,11 @@
 			dependencies = (
 			);
 			name = "HIIT-Tracker";
+			packageProductDependencies = (
+				17B56189274BE711008A2554 /* Lottie */,
+				17B5618C274BE851008A2554 /* FirebaseAuth */,
+				17B5618E274BE851008A2554 /* FirebaseDatabase */,
+			);
 			productName = "HIIT-Tracker";
 			productReference = 1776BE24273E5D06004C981D /* HIIT-Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -171,6 +217,10 @@
 				Base,
 			);
 			mainGroup = 1776BE1B273E5D06004C981D;
+			packageReferences = (
+				17B56188274BE711008A2554 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				17B5618B274BE851008A2554 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 1776BE25273E5D06004C981D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -185,8 +235,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17969A59274BF8BC0093684C /* frog-press.json in Resources */,
 				1776BE2F273E5D07004C981D /* Preview Assets.xcassets in Resources */,
+				17969A54274BF8BC0093684C /* reverse-crunches.json in Resources */,
+				17969A57274BF8BC0093684C /* punches.json in Resources */,
 				1776BE2C273E5D07004C981D /* Assets.xcassets in Resources */,
+				17969A58274BF8BC0093684C /* squat-kick.json in Resources */,
+				17969A56274BF8BC0093684C /* lunge.json in Resources */,
+				17969A53274BF8BC0093684C /* inchworm.json in Resources */,
+				17969A55274BF8BC0093684C /* jumping-jack.json in Resources */,
+				17969A5A274BF8BC0093684C /* shoulder-stretch.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +257,7 @@
 			files = (
 				1776BE40273E9519004C981D /* SettingsView.swift in Sources */,
 				1776BE44273EAFE5004C981D /* HeaderView.swift in Sources */,
+				17B56191274BE8A3008A2554 /* LottieView.swift in Sources */,
 				17B56185274661D1008A2554 /* UserManager.swift in Sources */,
 				17B56182274661A2008A2554 /* Workouts.swift in Sources */,
 				1776BE3E273E9333004C981D /* TimerView.swift in Sources */,
@@ -340,6 +399,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = H25X3F763W;
 				ENABLE_PREVIEWS = YES;
@@ -370,6 +430,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = H25X3F763W;
 				ENABLE_PREVIEWS = YES;
@@ -415,6 +476,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		17B56188274BE711008A2554 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		17B5618B274BE851008A2554 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		17B56189274BE711008A2554 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17B56188274BE711008A2554 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		17B5618C274BE851008A2554 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17B5618B274BE851008A2554 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		17B5618E274BE851008A2554 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17B5618B274BE851008A2554 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1776BE1C273E5D06004C981D /* Project object */;
 }
